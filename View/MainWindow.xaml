@@ -1,0 +1,73 @@
+﻿<Metro:AduWindow x:Class="CodeDisplayBox.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Metro="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
+        xmlns:local="clr-namespace:CodeDisplayBox.View"
+        xmlns:controls="clr-namespace:CodeDisplayBox.Controls"
+        xmlns:DataBase="clr-namespace:CodeDisplayBox.ViewModel"
+        mc:Ignorable="d"
+        Title="CodeDisplayBox" Height="700" MinHeight="700" Width="1000" MinWidth="1000" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" WindowStyle="None" WindowStartupLocation="CenterScreen" >
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="40" Opacity="0.4" ShadowDepth="0"/>
+    </Window.Effect>
+    <Window.DataContext>
+        <DataBase:MainViewModel>
+        </DataBase:MainViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush  Stretch="UniformToFill"></ImageBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="#10ffffff">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel  Margin="0,20,0,0">
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Content="代码整理盒子"  HorizontalAlignment="Center"  FontSize="15"   />
+                        
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Metro:MetroScrollViewer>
+                    <StackPanel Margin="10,0">
+                        <Metro:MetroButton Content="插入新代码"  Margin="0,11,0,0" FontSize="15" Command="{Binding InsertCodeCommand}">
+                        </Metro:MetroButton>
+                        <Metro:MetroButton Content="新建代码仓库" Margin="0,20,0,0" FontSize="15" Command="{Binding BuildDepositoryCommand}">
+                        </Metro:MetroButton>
+                        <Metro:AduExpander Header="我创建的仓库" IsExpanded="{Binding IsPluginExpanded}" Margin="0,20,0,0" FontSize="15">
+                            <StackPanel>
+                                
+                            </StackPanel>
+                        </Metro:AduExpander>
+                        <Metro:AduExpander Header="知识点清单" IsExpanded="{Binding IsPluginExpanded}" Margin="0,20,0,0" FontSize="15">
+                            <StackPanel>
+                                
+                            </StackPanel>
+                        </Metro:AduExpander>
+                    </StackPanel>
+                </Metro:MetroScrollViewer>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Background="#05000000">
+            
+
+        </Grid>
+    </Grid>
+</Metro:AduWindow>
